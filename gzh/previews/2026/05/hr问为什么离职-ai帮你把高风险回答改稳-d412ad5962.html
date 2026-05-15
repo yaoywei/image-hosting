@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:,">
+  <title>HR问为什么离职，AI帮你把高风险回答改稳</title>
+  <style>
+/* ============================================
+   「大姚AI提效」公众号样式 v3.5
+   科技蓝 + 温暖橙 · 极简友好科技感
+   适配微信公众号/墨滴富文本
+   ============================================ */
+
+/* ---------- 变量定义 ---------- */
+:root {
+  --primary: #2563EB;        /* 科技蓝 */
+  --primary-dark: #1D4ED8;    /* 深蓝 */
+  --primary-light: #3B82F6;   /* 浅蓝 */
+  --primary-bg: rgba(37, 99, 235, 0.03); /* 极浅蓝背景 */
+  --accent: #F97316;          /* 温暖橙 */
+  --accent-light: #FB923C;   /* 浅橙 */
+  --bg-card: #FFFFFF;
+  --bg-light: #F9FAFB;
+  --text-dark: #111827;
+  --text-body: #374151;
+  --text-muted: #9CA3AF;
+  --border-light: #E5E7EB;
+  --border-accent: rgba(37, 99, 235, 0.15);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(37, 99, 235, 0.1);
+  --shadow-lg: 0 8px 24px rgba(37, 99, 235, 0.15);
+}
+
+/* ---------- 公众号容器 ---------- */
+.rich_media_content,
+#js_content,
+.article-content {
+  font-family: 'PingFang SC', -apple-system, BlinkMacSystemFont, "Microsoft YaHei", sans-serif;
+  color: var(--text-body);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* ---------- 封面图 ---------- */
+.rich_media_content img:first-of-type,
+#js_content img:first-child,
+.rich_media_thumb {
+  border-radius: 12px !important;
+  margin-bottom: 24px !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+/* ---------- 标题 ---------- */
+.rich_media_content h1,
+#js_content h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-dark);
+  text-align: center;
+  margin: 32px 0 20px;
+  line-height: 1.4;
+}
+
+.rich_media_content h2,
+#js_content h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 36px 0 18px;
+  line-height: 1.5;
+  padding-left: 0;
+  border-left: none;
+}
+
+.rich_media_content h2::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 18px;
+  background: linear-gradient(180deg, var(--primary), var(--accent));
+  border-radius: 2px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.rich_media_content h3,
+#js_content h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 20px 0 12px;
+  line-height: 1.5;
+}
+
+.rich_media_content h4,
+#js_content h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0 0 8px;
+}
+
+/* ---------- 段落 ---------- */
+.rich_media_content p,
+#js_content p {
+  color: var(--text-body);
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 12px 0;
+}
+
+/* ---------- 强调 ---------- */
+.rich_media_content strong,
+#js_content strong {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.rich_media_content em,
+#js_content em {
+  color: var(--accent);
+  font-style: normal;
+  font-weight: 600;
+  background: linear-gradient(transparent 60%, rgba(249, 115, 22, 0.12) 60%);
+  padding: 0 2px;
+}
+
+/* ---------- 引用块 ---------- */
+.rich_media_content blockquote,
+#js_content blockquote {
+  background: var(--bg-light);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 20px 0;
+  position: relative;
+  border: 1px solid var(--border-light);
+}
+
+.rich_media_content blockquote p,
+#js_content blockquote p {
+  color: var(--text-dark);
+  font-style: italic;
+  font-size: 15px;
+  margin: 0;
+  line-height: 1.7;
+}
+
+.rich_media_content q,
+#js_content q {
+  display: block;
+  border-left: 3px solid var(--primary);
+  padding: 12px 16px;
+  margin: 14px 0;
+  color: var(--text-body);
+  background: var(--bg-light);
+  border-radius: 0 8px 8px 0;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* ---------- 分割线 ---------- */
+.rich_media_content hr,
+#js_content hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--border-light) 20%, var(--border-light) 80%, transparent);
+  margin: 32px 0;
+}
+
+/* ---------- 列表 ---------- */
+.rich_media_content ul,
+.rich_media_content ol,
+#js_content ul,
+#js_content ol {
+  background: var(--bg-light);
+  border-radius: 10px;
+  padding: 14px 14px 14px 36px;
+  margin: 16px 0;
+  border: 1px solid var(--border-light);
+}
+
+.rich_media_content li,
+#js_content li {
+  color: var(--text-body);
+  margin: 8px 0;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.rich_media_content ul li,
+#js_content ul li {
+  list-style: none;
+  position: relative;
+}
+
+.rich_media_content ul li::before,
+#js_content ul li::before {
+  content: "·";
+  color: var(--primary);
+  font-size: 16px;
+  font-weight: 700;
+  position: absolute;
+  left: -16px;
+  top: 0;
+}
+
+/* ---------- 代码 ---------- */
+.rich_media_content code,
+#js_content code {
+  background: var(--bg-light);
+  color: var(--primary-dark);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'SF Mono', Consolas, monospace;
+  font-size: 13px;
+  border: 1px solid var(--border-light);
+}
+
+.rich_media_content pre,
+#js_content pre {
+  background: #1E293B;
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin: 18px 0;
+  overflow-x: auto;
+}
+
+.rich_media_content pre code,
+#js_content pre code {
+  background: transparent;
+  color: #E2E8F0;
+  padding: 0;
+  font-size: 13px;
+  line-height: 1.7;
+  border: none;
+}
+
+/* ============================================
+   组件 1：CASE 场景卡片
+   ============================================ */
+.rich_media_content .case-card,
+#js_content .case-card {
+  background: var(--primary-bg);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+.rich_media_content .case-card:hover,
+#js_content .case-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-accent);
+}
+
+.rich_media_content .case-header,
+#js_content .case-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.rich_media_content .case-label,
+#js_content .case-label {
+  display: inline-block;
+  background: #111827;
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+  letter-spacing: 0.5px;
+}
+
+.rich_media_content .case-title,
+#js_content .case-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0;
+  line-height: 1.4;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rich_media_content .case-title::before,
+#js_content .case-title::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.rich_media_content .case-subtitle,
+#js_content .case-subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin: 0 0 14px;
+  line-height: 1.5;
+}
+
+.rich_media_content .case-body,
+#js_content .case-body {
+  font-size: 14px;
+  color: var(--text-body);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.rich_media_content .case-highlight,
+#js_content .case-highlight {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--border-light);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-dark);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.rich_media_content .case-highlight::before,
+#js_content .case-highlight::before {
+  content: "→";
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.rich_media_content .case-card img,
+#js_content .case-card img {
+  margin: 14px 0 0;
+  max-width: 100%;
+}
+
+/* ============================================
+   组件 2：STEP 步骤卡片（卡片版）
+   用于复杂操作（4步以上或有截图）
+   ============================================ */
+.rich_media_content .step-card,
+#js_content .step-card {
+  background: rgba(37, 99, 235, 0.04);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin: 16px 0;
+  position: relative;
+  border-left: 3px solid var(--primary);
+}
+
+.rich_media_content .step-header,
+#js_content .step-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.rich_media_content .step-label,
+#js_content .step-label {
+  display: inline-block;
+  background: var(--primary);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+.rich_media_content .step-title,
+#js_content .step-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.rich_media_content .step-body,
+#js_content .step-body {
+  font-size: 14px;
+  color: var(--text-body);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.rich_media_content .step-card img,
+#js_content .step-card img {
+  max-width: 80%;
+  margin: 12px auto;
+  display: block;
+  border-radius: 8px;
+}
+
+/* ============================================
+   组件 2：STEP 步骤列表（列表版）
+   用于简单操作（3步以内）
+   ============================================ */
+.rich_media_content .steps,
+#js_content .steps {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  counter-reset: step-counter;
+}
+
+.rich_media_content .steps li,
+#js_content .steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin: 16px 0;
+  padding: 14px 16px;
+  background: rgba(37, 99, 235, 0.03);
+  border-radius: 10px;
+  position: relative;
+  list-style: none;
+}
+
+.rich_media_content .steps li::before,
+#js_content .steps li::before {
+  content: counter(step-counter);
+  counter-increment: step-counter;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  background: var(--primary);
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.rich_media_content .step-content,
+#js_content .step-content {
+  flex: 1;
+}
+
+.rich_media_content .step-action,
+#js_content .step-action {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin: 0 0 4px;
+  line-height: 1.4;
+}
+
+.rich_media_content .step-desc,
+#js_content .step-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ============================================
+   组件 3：TIP 提示块
+   ============================================ */
+
+/* 通用 TIP 样式 */
+.rich_media_content .tip,
+.rich_media_content .note,
+#js_content .tip,
+#js_content .note {
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 18px 0;
+  position: relative;
+  border: 1px solid;
+}
+
+/* 进阶用法 - 浅蓝 */
+.rich_media_content .tip-info,
+#js_content .tip-info {
+  background: #EFF6FF;
+  border-color: #93C5FD;
+}
+
+.rich_media_content .tip-info .tip-title,
+#js_content .tip-info .tip-title {
+  color: #1D4ED8;
+}
+
+.rich_media_content .tip-info .tip-body,
+#js_content .tip-info .tip-body {
+  color: #1E40AF;
+}
+
+/* 安全提醒 - 浅橙 */
+.rich_media_content .tip-warning,
+.rich_media_content .warning,
+#js_content .tip-warning,
+#js_content .warning {
+  background: #FEF3C7;
+  border-color: #FCD34D;
+}
+
+.rich_media_content .tip-warning .tip-title,
+#js_content .tip-warning .tip-title {
+  color: #92400E;
+}
+
+.rich_media_content .tip-warning .tip-body,
+#js_content .tip-warning .tip-body {
+  color: #78350F;
+}
+
+/* 踩坑提示 - 浅红 */
+.rich_media_content .tip-danger,
+#js_content .tip-danger {
+  background: #FEE2E2;
+  border-color: #FECACA;
+}
+
+.rich_media_content .tip-danger .tip-title,
+#js_content .tip-danger .tip-title {
+  color: #991B1B;
+}
+
+.rich_media_content .tip-danger .tip-body,
+#js_content .tip-danger .tip-body {
+  color: #7F1D1D;
+}
+
+/* TIP 通用头部 */
+.rich_media_content .tip-header,
+#js_content .tip-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.rich_media_content .tip-icon,
+#js_content .tip-icon {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.rich_media_content .tip-info .tip-icon,
+#js_content .tip-info .tip-icon {
+  background: #F59E0B;
+}
+
+.rich_media_content .tip-warning .tip-icon,
+#js_content .tip-warning .tip-icon {
+  background: #EF4444;
+}
+
+.rich_media_content .tip-danger .tip-icon,
+#js_content .tip-danger .tip-icon {
+  background: #DC2626;
+}
+
+.rich_media_content .tip-title,
+#js_content .tip-title {
+  font-size: 13px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.rich_media_content .tip-body,
+#js_content .tip-body {
+  font-size: 13px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ============================================
+   文章结构组件
+   ============================================ */
+
+/* 文章开头 - 你能获得什么 */
+.rich_media_content .gain-section,
+#js_content .gain-section {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(249, 115, 22, 0.03));
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 24px 0;
+}
+
+.rich_media_content .gain-title,
+#js_content .gain-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rich_media_content .gain-title::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: var(--primary);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.rich_media_content .gain-list,
+#js_content .gain-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rich_media_content .gain-list li,
+#js_content .gain-list li {
+  font-size: 14px;
+  color: var(--text-body);
+  margin: 10px 0;
+  padding-left: 20px;
+  position: relative;
+  list-style: none;
+}
+
+.rich_media_content .gain-list li::before,
+#js_content .gain-list li::before {
+  content: "▸";
+  color: var(--primary);
+  font-weight: 700;
+  position: absolute;
+  left: 0;
+}
+
+/* 结尾 CTA */
+.rich_media_content .ending,
+#js_content .ending {
+  text-align: center;
+  padding: 32px 24px;
+  margin-top: 36px;
+  background: linear-gradient(180deg, var(--bg-light), #fff);
+  border-radius: 16px;
+  border: 1px solid var(--border-light);
+}
+
+.rich_media_content .ending-title,
+#js_content .ending-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+}
+
+.rich_media_content .ending-cta,
+#js_content .ending-cta {
+  font-size: 14px;
+  color: var(--text-body);
+  margin: 12px 0;
+  line-height: 1.7;
+}
+
+.rich_media_content .ending-action,
+#js_content .ending-action {
+  display: inline-block;
+  background: var(--primary);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 999px;
+  margin: 16px 0;
+  text-decoration: none;
+}
+
+.rich_media_content .ending-img,
+#js_content .ending-img {
+  width: 180px;
+  margin: 20px auto;
+  border-radius: 12px;
+  display: block;
+}
+
+.rich_media_content .author-info,
+#js_content .author-info {
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.8;
+  margin-top: 16px;
+}
+
+/* ---------- 图片 ---------- */
+.rich_media_content img,
+#js_content img {
+  border-radius: 10px;
+  display: block;
+  margin: 16px auto;
+  max-width: 100%;
+  box-shadow: var(--shadow-sm);
+}
+
+.rich_media_content .img-caption,
+#js_content .img-caption {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 12px;
+  margin-top: -10px;
+  margin-bottom: 14px;
+}
+
+/* ---------- 链接 ---------- */
+.rich_media_content a,
+#js_content a {
+  color: var(--primary);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(37, 99, 235, 0.3);
+  transition: all 0.2s ease;
+}
+
+.rich_media_content a:hover,
+#js_content a:hover {
+  color: var(--primary-dark);
+  border-bottom-color: var(--primary);
+}
+
+/* ========== 工具列表卡片 ========== */
+.rich_media_content .tool-list,
+#js_content .tool-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.rich_media_content .tool-card,
+#js_content .tool-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 16px 12px;
+  text-align: center;
+  transition: all 0.25s ease;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+
+.rich_media_content .tool-card:hover,
+#js_content .tool-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.rich_media_content .tool-icon,
+#js_content .tool-icon {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  border-radius: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+  letter-spacing: -0.5px;
+}
+
+.rich_media_content .tool-name,
+#js_content .tool-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+
+.rich_media_content .tool-desc,
+#js_content .tool-desc {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.rich_media_content .tool-free,
+#js_content .tool-free {
+  display: inline-block;
+  background: #DCFCE7;
+  color: #166534;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-top: 8px;
+}
+
+/* ========== 提示词模板代码块 ========== */
+.rich_media_content .prompt-template,
+#js_content .prompt-template {
+  background: var(--bg-light);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  margin: 20px 0;
+  overflow: hidden;
+}
+
+.rich_media_content .prompt-header,
+#js_content .prompt-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(249, 115, 22, 0.05));
+  border-bottom: 1px solid var(--border-light);
+}
+
+.rich_media_content .prompt-title,
+#js_content .prompt-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.rich_media_content .prompt-title::before,
+#js_content .prompt-title::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background: var(--primary);
+  border-radius: 3px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.rich_media_content .prompt-title::after,
+#js_content .prompt-title::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 5px;
+  width: 8px;
+  height: 6px;
+  border-left: 2px solid white;
+  border-bottom: 2px solid white;
+  transform: rotate(-45deg);
+}
+
+.rich_media_content .copy-btn,
+#js_content .copy-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.rich_media_content .copy-btn:hover,
+#js_content .copy-btn:hover {
+  background: var(--primary-dark);
+}
+
+.rich_media_content .copy-btn.copied,
+#js_content .copy-btn.copied {
+  background: #16A34A;
+}
+
+.rich_media_content .copy-icon,
+#js_content .copy-icon {
+  width: 12px;
+  height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.rich_media_content .copy-icon::before,
+#js_content .copy-icon::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border: 2px solid white;
+  border-radius: 2px;
+}
+
+.rich_media_content .copy-icon::after,
+#js_content .copy-icon::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 2px;
+  background: white;
+  transform: rotate(45deg);
+  top: 6px;
+  left: 5px;
+}
+
+.rich_media_content .copy-btn.copied .copy-icon::before,
+#js_content .copy-btn.copied .copy-icon::before {
+  border-color: white;
+}
+
+.rich_media_content .copy-btn.copied .copy-icon::after,
+#js_content .copy-btn.copied .copy-icon::after {
+  width: 5px;
+  height: 3px;
+  border-left: 2px solid white;
+  border-bottom: 2px solid white;
+  background: transparent;
+  top: 4px;
+  left: 2px;
+}
+
+.rich_media_content .prompt-code,
+#js_content .prompt-code {
+  padding: 16px;
+}
+
+.rich_media_content .prompt-code pre,
+#js_content .prompt-code pre {
+  background: #1E293B;
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin: 0;
+  overflow-x: auto;
+}
+
+.rich_media_content .prompt-code pre code,
+#js_content .prompt-code pre code {
+  color: #E2E8F0;
+  font-size: 13px;
+  line-height: 1.7;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.rich_media_content .prompt-tags,
+#js_content .prompt-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0 16px 14px;
+}
+
+.rich_media_content .prompt-tag,
+#js_content .prompt-tag {
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--primary);
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+/* ---------- 响应式 ---------- */
+@media screen and (max-width: 480px) {
+  body {
+    padding: 16px 14px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 16px;
+  }
+
+  .case-card {
+    padding: 16px;
+  }
+
+  .case-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .step-card {
+    padding: 14px 16px;
+  }
+
+  .steps li {
+    padding: 12px 14px;
+  }
+
+  .tip {
+    padding: 12px 14px;
+  }
+
+  .ending {
+    padding: 24px 16px;
+  }
+
+  .tool-list {
+    grid-template-columns: 1fr;
+  }
+
+  .prompt-header {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .copy-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
+body {
+  margin: 0;
+  padding: 32px 16px 64px;
+  background:
+    radial-gradient(circle at top left, rgba(37, 99, 235, 0.08), transparent 28%),
+    radial-gradient(circle at top right, rgba(249, 115, 22, 0.08), transparent 26%),
+    #f3f7fb;
+}
+
+.preview-shell {
+  max-width: 760px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.08);
+  padding: 28px 22px 48px;
+}
+
+.rich_media_content {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.rich_media_content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+}
+
+.rich_media_content th,
+.rich_media_content td {
+  border: 1px solid #e5e7eb;
+  padding: 10px 12px;
+  font-size: 14px;
+  line-height: 1.7;
+  text-align: left;
+}
+
+.rich_media_content th {
+  background: #f8fafc;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+@media (max-width: 720px) {
+  body {
+    padding: 16px 10px 40px;
+  }
+
+  .preview-shell {
+    border-radius: 14px;
+    padding: 18px 14px 32px;
+  }
+}
+  </style>
+</head>
+<body>
+  <main class="preview-shell">
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HR问为什么离职，AI帮你把高风险回答改稳</title>
+</head>
+<body style="margin:0;background:#FFFFFF;">
+<div style="max-width:578px;margin:0 auto;background:#FFFFFF;padding:20px 16px;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;color:#374151;font-size:16px;line-height:1.8;">
+<h1 style="font-size:26px;line-height:1.35;font-weight:850;color:#111827;margin:0 0 18px;padding:0;">HR问为什么离职，AI帮你把高风险回答改稳</h1>
+<p style="margin:28px 0;text-align:center;">
+  <img src="https://cdn.jsdelivr.net/gh/yaoywei/image-hosting@main/gzh/2026/04/md-assets/article-210dcad0/img-01.png" alt="文章封面" style="display:block;width:96%;max-width:100%;height:auto;border-radius:8px;margin:0 auto;">
+</p>
+<section style="background:#EFF6FF;border:1px solid #BFDBFE;border-radius:8px;padding:14px 16px;margin:0 0 24px;">
+<p style="margin:0 0 6px;font-size:14px;line-height:1.75;color:#1E40AF;">阅读需 5 分钟 | 含 3 个 AI 提示词 | 建议先收藏</p>
+<p style="margin:0 0 6px;font-size:14px;line-height:1.75;color:#1E40AF;">回复「离职原因」领取完整飞书资料包：</p>
+<p style="margin:0 0 6px;font-size:14px;line-height:1.75;color:#1E40AF;">https://pcnhyp285wrm.feishu.cn/docx/OtCEdEpwJoik4DxIT8ic7pO8nGe</p>
+</section>
+<section style="height:1px;background:#E5E7EB;margin:28px 0;"></section>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">面试里有个问题，很多人一听就紧张。</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;"><strong style="color:#111827;font-weight:800;">“你为什么从上一家公司离职？”</strong></p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">你明明只是想说真实情况。</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">但一开口，很容易变成：</p>
+<section style="margin:0 0 22px;padding:8px 14px;background:#F9FAFB;border:1px solid #E5E7EB;border-radius:8px;"><p style="margin:8px 0;font-size:15px;line-height:1.75;color:#374151;"><strong style="color:#2563EB;">•</strong> 公司太乱</p>
+<p style="margin:8px 0;font-size:15px;line-height:1.75;color:#374151;"><strong style="color:#2563EB;">•</strong> 领导不行</p>
+<p style="margin:8px 0;font-size:15px;line-height:1.75;color:#374151;"><strong style="color:#2563EB;">•</strong> 学不到东西</p>
+<p style="margin:8px 0;font-size:15px;line-height:1.75;color:#374151;"><strong style="color:#2563EB;">•</strong> 天天加班</p>
+<p style="margin:8px 0;font-size:15px;line-height:1.75;color:#374151;"><strong style="color:#2563EB;">•</strong> 工资太低</p></section>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">这些话不一定是假的。</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">但在面试现场，它们很容易被听成另一层意思：</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;"><strong style="color:#111827;font-weight:800;">这个人是不是情绪很重？会不会稳定性差？进来以后会不会也这样评价我们？</strong></p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">所以，离职原因这题，最难的不是“找一个完美理由”。</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">而是把真实原因说得更稳。</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">AI 在这件事上很有用。</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">不是让它帮你编故事，而是让它帮你把高风险表达改成：</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;"><strong style="color:#111827;font-weight:800;">真实、客观、有方向、能接上目标岗位。</strong></p>
+<p style="margin:28px 0;text-align:center;">
+  <img src="https://cdn.jsdelivr.net/gh/yaoywei/image-hosting@main/gzh/2026/04/md-assets/article-210dcad0/img-02.png" alt="离职原因回答结构" style="display:block;width:96%;max-width:100%;height:auto;border-radius:8px;margin:0 auto;">
+</p>
+<section style="height:1px;background:#E5E7EB;margin:28px 0;"></section>
+<section style="margin:34px 0 18px;padding:0 0 0 12px;border-left:4px solid #2563EB;">
+  <h2 style="font-size:21px;line-height:1.45;font-weight:850;color:#111827;margin:0;">一、HR 问离职原因，其实在判断 4 件事</h2>
+</section>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">这题表面问的是过去。</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">实际判断的是未来。</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">HR 大概率在看这 4 件事：</p>
+<section style="margin:0 0 22px;padding:8px 14px;background:#F9FAFB;border:1px solid #E5E7EB;border-radius:8px;"><p style="margin:8px 0;font-size:15px;line-height:1.75;color:#374151;"><strong style="color:#2563EB;">1.</strong> 你会不会抱怨前公司</p>
+<p style="margin:8px 0;font-size:15px;line-height:1.75;color:#374151;"><strong style="color:#2563EB;">2.</strong> 你是不是遇到问题就跑</p>
+<p style="margin:8px 0;font-size:15px;line-height:1.75;color:#374151;"><strong style="color:#2563EB;">3.</strong> 你对下一份工作有没有清晰判断</p>
+<p style="margin:8px 0;font-size:15px;line-height:1.75;color:#374151;"><strong style="color:#2563EB;">4.</strong> 你这次选择和岗位是否匹配</p></section>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">所以你回答时，不要只解释“我为什么走”。</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">你更要表达：</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;"><strong style="color:#111827;font-weight:800;">我从上一段经历里看清了什么，所以这次更明确自己要什么。</strong></p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">这句话一换，整个答案的气质就不一样。</p>
+<section style="height:1px;background:#E5E7EB;margin:28px 0;"></section>
+<section style="margin:34px 0 18px;padding:0 0 0 12px;border-left:4px solid #2563EB;">
+  <h2 style="font-size:21px;line-height:1.45;font-weight:850;color:#111827;margin:0;">二、先让 AI 查你的高风险表达</h2>
+</section>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">很多人的问题不是没准备。</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">是准备出来的答案，一听就扣分。</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">比如：</p>
+<section style="background:#EFF6FF;border:1px solid #BFDBFE;border-radius:8px;padding:14px 16px;margin:0 0 24px;">
+<p style="margin:0 0 6px;font-size:14px;line-height:1.75;color:#1E40AF;">“公司管理太乱，我实在受不了了。”</p>
+</section>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">这句话的问题，不在于你一定错了。</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">而是它把重点全放在前公司身上。</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">更稳的方向应该是：</p>
+<section style="background:#EFF6FF;border:1px solid #BFDBFE;border-radius:8px;padding:14px 16px;margin:0 0 24px;">
+<p style="margin:0 0 6px;font-size:14px;line-height:1.75;color:#1E40AF;">“上一段经历里，团队节奏和职责边界变化比较频繁。这个过程让我意识到，我更适合目标清晰、协作机制更稳定的岗位，也更希望把精力放在长期可积累的业务结果上。”</p>
+</section>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">这就不是抱怨了。</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">它变成了：</p>
+<section style="margin:0 0 22px;padding:8px 14px;background:#F9FAFB;border:1px solid #E5E7EB;border-radius:8px;"><p style="margin:8px 0;font-size:15px;line-height:1.75;color:#374151;"><strong style="color:#2563EB;">•</strong> 客观变化</p>
+<p style="margin:8px 0;font-size:15px;line-height:1.75;color:#374151;"><strong style="color:#2563EB;">•</strong> 自我判断</p>
+<p style="margin:8px 0;font-size:15px;line-height:1.75;color:#374151;"><strong style="color:#2563EB;">•</strong> 下一步方向</p>
+<p style="margin:8px 0;font-size:15px;line-height:1.75;color:#374151;"><strong style="color:#2563EB;">•</strong> 岗位匹配</p></section>
+<p style="margin:28px 0;text-align:center;">
+  <img src="https://cdn.jsdelivr.net/gh/yaoywei/image-hosting@main/gzh/2026/04/md-assets/article-210dcad0/img-03.png" alt="离职原因风险自查" style="display:block;width:96%;max-width:100%;height:auto;border-radius:8px;margin:0 auto;">
+</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">你可以直接复制这个提示词给 AI：</p>
+<section style="background:#0D1117;border-radius:8px;padding:0;margin:0 0 26px;">
+  <p style="margin:0;padding:10px 14px 8px;font-size:13px;font-weight:600;color:#8B949E;border-bottom:1px solid #30363D;">提示词模板</p>
+  <p style="color:#C9D1D9;font-size:14px;line-height:1.8;margin:0;font-family:Consolas,'SF Mono',monospace;word-break:break-word;padding:14px 16px;">你现在扮演一位严格但负责的 HR。<br><br>我会给你一段“为什么离职”的回答。<br>请你不要安慰我，直接帮我判断这段回答是否有风险。<br><br>请从 5 个维度检查：<br>1. 是否像在抱怨前公司；<br>2. 是否显得稳定性差；<br>3. 是否暴露了不该展开的内部信息；<br>4. 是否只讲过去，没有讲未来方向；<br>5. 是否和目标岗位没有建立连接。<br><br>然后请你把它改成一版更稳的 60 秒回答。<br><br>要求：<br>- 不编造经历；<br>- 不攻击前公司；<br>- 不泄露敏感信息；<br>- 保留真实原因；<br>- 用自然口语表达，不要像背稿。<br><br>我的原回答：<br>【粘贴你的原回答】<br><br>目标岗位：<br>【粘贴岗位名称和 JD 要点】</p>
+</section>
+<section style="height:1px;background:#E5E7EB;margin:28px 0;"></section>
+<section style="margin:34px 0 18px;padding:0 0 0 12px;border-left:4px solid #2563EB;">
+  <h2 style="font-size:21px;line-height:1.45;font-weight:850;color:#111827;margin:0;">三、3 类常见原因，可以这样改</h2>
+</section>
+<h3 style="font-size:17px;line-height:1.55;font-weight:800;color:#111827;margin:26px 0 12px;">1. 发展空间变窄</h3>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">高风险说法：</p>
+<section style="background:#EFF6FF;border:1px solid #BFDBFE;border-radius:8px;padding:14px 16px;margin:0 0 24px;">
+<p style="margin:0 0 6px;font-size:14px;line-height:1.75;color:#1E40AF;">“公司没发展，学不到东西。”</p>
+</section>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">更稳说法：</p>
+<section style="background:#EFF6FF;border:1px solid #BFDBFE;border-radius:8px;padding:14px 16px;margin:0 0 24px;">
+<p style="margin:0 0 6px;font-size:14px;line-height:1.75;color:#1E40AF;">“上一段经历让我把基础能力练得比较扎实，但后期岗位职责比较稳定，可拓展空间有限。下一阶段我希望进入更完整的业务链路，承担从需求判断到结果复盘的工作。这个岗位里有明确的业务目标和协作空间，所以我会比较关注。”</p>
+</section>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">重点不是说前公司不行。</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">而是说你下一阶段想承担什么。</p>
+<h3 style="font-size:17px;line-height:1.55;font-weight:800;color:#111827;margin:26px 0 12px;">2. 组织调整或业务变化</h3>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">高风险说法：</p>
+<section style="background:#EFF6FF;border:1px solid #BFDBFE;border-radius:8px;padding:14px 16px;margin:0 0 24px;">
+<p style="margin:0 0 6px;font-size:14px;line-height:1.75;color:#1E40AF;">“公司业务不行了，我怕被裁。”</p>
+</section>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">更稳说法：</p>
+<section style="background:#EFF6FF;border:1px solid #BFDBFE;border-radius:8px;padding:14px 16px;margin:0 0 24px;">
+<p style="margin:0 0 6px;font-size:14px;line-height:1.75;color:#1E40AF;">“上一家公司最近业务方向有调整，我所在岗位的重点也发生了变化。这个变化让我重新评估了自己的职业方向。我希望下一份工作能更聚焦在我擅长的内容策划、用户沟通和项目推进上，而不是频繁切换目标。”</p>
+</section>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">重点不是渲染风险。</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">而是说明你重新选择的依据。</p>
+<h3 style="font-size:17px;line-height:1.55;font-weight:800;color:#111827;margin:26px 0 12px;">3. 通勤、家庭或节奏变化</h3>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">高风险说法：</p>
+<section style="background:#EFF6FF;border:1px solid #BFDBFE;border-radius:8px;padding:14px 16px;margin:0 0 24px;">
+<p style="margin:0 0 6px;font-size:14px;line-height:1.75;color:#1E40AF;">“太累了，扛不住。”</p>
+</section>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">更稳说法：</p>
+<section style="background:#EFF6FF;border:1px solid #BFDBFE;border-radius:8px;padding:14px 16px;margin:0 0 24px;">
+<p style="margin:0 0 6px;font-size:14px;line-height:1.75;color:#1E40AF;">“上一份工作的节奏和通勤成本对长期投入影响比较大。我希望下一份工作在节奏上更可持续，这样能把精力更多放在岗位产出上。对我来说，稳定投入比短期硬扛更重要。”</p>
+</section>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">重点不是说你怕累。</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">而是说你想把精力放在真正产出上。</p>
+<section style="height:1px;background:#E5E7EB;margin:28px 0;"></section>
+<section style="margin:34px 0 18px;padding:0 0 0 12px;border-left:4px solid #2563EB;">
+  <h2 style="font-size:21px;line-height:1.45;font-weight:850;color:#111827;margin:0;">四、再让 AI 模拟 3 轮追问</h2>
+</section>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">离职原因这题最容易翻车的地方，是第一句还行，后面追问就乱了。</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">比如 HR 会继续问：</p>
+<section style="margin:0 0 22px;padding:8px 14px;background:#F9FAFB;border:1px solid #E5E7EB;border-radius:8px;"><p style="margin:8px 0;font-size:15px;line-height:1.75;color:#374151;"><strong style="color:#2563EB;">•</strong> “那你和领导是不是有矛盾？”</p>
+<p style="margin:8px 0;font-size:15px;line-height:1.75;color:#374151;"><strong style="color:#2563EB;">•</strong> “如果我们这里也比较忙，你能接受吗？”</p>
+<p style="margin:8px 0;font-size:15px;line-height:1.75;color:#374151;"><strong style="color:#2563EB;">•</strong> “你说职责变化，那具体变化是什么？”</p>
+<p style="margin:8px 0;font-size:15px;line-height:1.75;color:#374151;"><strong style="color:#2563EB;">•</strong> “为什么不在原公司内部转岗？”</p></section>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">这些问题如果没演练过，很容易越解释越乱。</p>
+<p style="margin:28px 0;text-align:center;">
+  <img src="https://cdn.jsdelivr.net/gh/yaoywei/image-hosting@main/gzh/2026/04/md-assets/article-210dcad0/img-04.png" alt="HR三轮追问演练" style="display:block;width:96%;max-width:100%;height:auto;border-radius:8px;margin:0 auto;">
+</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">我建议你用 AI 做 3 轮压力测试：</p>
+<section style="background:#0D1117;border-radius:8px;padding:0;margin:0 0 26px;">
+  <p style="margin:0;padding:10px 14px 8px;font-size:13px;font-weight:600;color:#8B949E;border-bottom:1px solid #30363D;">提示词模板</p>
+  <p style="color:#C9D1D9;font-size:14px;line-height:1.8;margin:0;font-family:Consolas,'SF Mono',monospace;word-break:break-word;padding:14px 16px;">你现在扮演一位谨慎的 HR，帮我演练“为什么离职”这个问题。<br><br>我的真实情况：<br>1. 上一份岗位：<br>2. 离职的真实原因：<br>3. 我这次面试的岗位：<br>4. 我不想暴露或不方便展开的信息：<br><br>请你按 3 轮追问我：<br>第一轮：直接问为什么离职。<br>第二轮：针对我的回答继续追问风险点。<br>第三轮：模拟比较尖锐的问题。<br><br>每轮结束后，请从这 4 个维度给我反馈：<br>1. 是否显得抱怨前公司；<br>2. 是否讲清楚客观原因；<br>3. 是否体现未来方向；<br>4. 是否和目标岗位建立连接。<br><br>最后请给我一版更稳的 60 秒回答，不要编造经历，不要替我承诺做不到的事。</p>
+</section>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">这里有个细节：</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">不要只让 AI “帮我优化一下”。</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">你要让它先追问。</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">因为真实面试里，风险往往不是第一句暴露的，而是第二轮、第三轮暴露的。</p>
+<section style="height:1px;background:#E5E7EB;margin:28px 0;"></section>
+<section style="margin:34px 0 18px;padding:0 0 0 12px;border-left:4px solid #2563EB;">
+  <h2 style="font-size:21px;line-height:1.45;font-weight:850;color:#111827;margin:0;">五、最后给自己设 3 条底线</h2>
+</section>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">AI 再好用，也不能替你越线。</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">这题有 3 条底线：</p>
+<section style="margin:0 0 22px;padding:8px 14px;background:#F9FAFB;border:1px solid #E5E7EB;border-radius:8px;"><p style="margin:8px 0;font-size:15px;line-height:1.75;color:#374151;"><strong style="color:#2563EB;">1.</strong> 不编经历</p>
+<p style="margin:8px 0;font-size:15px;line-height:1.75;color:#374151;"><strong style="color:#2563EB;">2.</strong> 不骂前公司</p>
+<p style="margin:8px 0;font-size:15px;line-height:1.75;color:#374151;"><strong style="color:#2563EB;">3.</strong> 不泄露敏感信息</p></section>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">尤其是第一条。</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">不要让 AI 帮你编“职业规划很清晰”“主动寻求更大平台”这种听起来完美、但你自己接不住的话。</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">面试不是写作文。</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">你说出来的每一句，都可能被继续追问。</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">最好的答案，不是最漂亮的答案。</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">是你能自然说出来、被追问后也站得住的答案。</p>
+<section style="height:1px;background:#E5E7EB;margin:28px 0;"></section>
+<section style="margin:34px 0 18px;padding:0 0 0 12px;border-left:4px solid #2563EB;">
+  <h2 style="font-size:21px;line-height:1.45;font-weight:850;color:#111827;margin:0;">结尾</h2>
+</section>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">离职原因不是一道送命题。</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">真正让人扣分的，往往不是离职本身，而是你把真实原因说成了情绪。</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">你可以先把自己的原回答写出来。</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">再用 AI 检查一遍：</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;"><strong style="color:#111827;font-weight:800;">有没有抱怨？有没有泄密？有没有只讲过去？有没有接上目标岗位？</strong></p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">这 4 个点过了，答案基本就稳了。</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">我把这篇里的模板整理成了一个飞书资料包：</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;"><strong style="color:#111827;font-weight:800;">回复「离职原因」领取《离职原因回答模板包》。</strong></p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">里面有 3 类常见离职原因模板、高风险回答改写清单，还有 HR 追问演练提示词。</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;">记住一句话：</p>
+<p style="margin:0 0 18px;font-size:16px;line-height:1.85;color:#374151;"><strong style="color:#111827;font-weight:800;">AI 可以帮你组织表达，但不要让它替你编人生。</strong></p>
+</div>
+</body>
+</html>
+  </main>
+  <script>
+function copyPrompt(btn) {
+  const code = btn.closest('.prompt-template')?.querySelector('code');
+  if (!code) return;
+  const text = code.textContent;
+
+  function setCopied() {
+    btn.classList.add('copied');
+    btn.innerHTML = '<span class="copy-icon"></span> 已复制';
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.innerHTML = '<span class="copy-icon"></span> 复制';
+    }, 1800);
+  }
+
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(setCopied).catch(fallbackCopy);
+    return;
+  }
+
+  fallbackCopy();
+
+  function fallbackCopy() {
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.style.position = 'fixed';
+    textarea.style.opacity = '0';
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
+    try {
+      document.execCommand('copy');
+      setCopied();
+    } finally {
+      document.body.removeChild(textarea);
+    }
+  }
+}
+</script>
+</body>
+</html>
